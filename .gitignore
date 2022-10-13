@@ -103,3 +103,4 @@ dist
 # TernJS port file
 .tern-port
 .idea/.idea.SAAD-Attendance.dir/.idea
+frontend/saad-attendance/.vscode
