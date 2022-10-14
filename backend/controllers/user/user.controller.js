@@ -1,6 +1,6 @@
 module.exports = (router) => {
-    router.get('/', function(req, res) {
-        res.json('users');
+    router.get('/', (req, res) => {
+        res.send('users');
     });
 }
 
