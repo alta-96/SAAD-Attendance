@@ -5,7 +5,7 @@
     configureMorgan(app);
     
     app.disable('etag'); // prevents returning 304 no-change state and returns 200 instead...
-}
+}   
 
 function configureMorgan(app) {
     const morgan = require('morgan');
