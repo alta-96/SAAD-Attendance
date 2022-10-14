@@ -1,21 +1,16 @@
+require("dotenv").config(); // For pulling .env variables.
+console.log(`\nRunning in environment: ${process.env.MODE}\n`);
+
 const express = require('express');
-var bodyParser = require('body-parser');
-const websocketService = require('./services/websocket.service');
+const app = express()
+const port = process.env.SERVER_PORT;
 
-const cors = require('cors');
-const jwt = require('jsonwebtoken');
+// Global Middleware
+require('./middleware/setupMiddleware')(app);
 
-const app = express();
+// Setup routes with their respective controllers
+require('./controllers/setupRoutesAndControllers')(app, express);
 
-app.use(bodyParser.json({limit: '50mb'}));
-app.use(bodyParser.urlencoded({limit: '50mb', extended: false}));
-//app.use(cors());
-
-const PORT = 8080;
-const server = require('http').createServer(app);
-const io = require('socket.io')(server);
-server.listen(PORT, () => console.log('Server started on port ' + PORT + '')); 
-
-
-websocketService.init(io);
-
+app.listen(port, () => {
+    console.log(`Server running on ${port}`);
+})
