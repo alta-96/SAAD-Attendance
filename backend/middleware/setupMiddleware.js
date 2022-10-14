@@ -1,5 +1,4 @@
-﻿const morgan = require("morgan");
-module.exports = (app) => {
+﻿module.exports = (app) => {
     require("dotenv").config();
     const bodyParser = require('body-parser');
     const morgan = require('morgan');
