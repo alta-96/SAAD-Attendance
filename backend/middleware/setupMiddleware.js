@@ -21,3 +21,4 @@ function configureBodyParser(app) {
     const bodyParser = require('body-parser');
     app.use(bodyParser.json());
 }
+
